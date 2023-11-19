@@ -7,12 +7,20 @@ export default function Routes() {
 
   if (loadingStorageUser) {
     return (
-      <HStack space={2} justifyContent="center">
-        <Spinner accessibilityLabel="Loading user" />
-        <Heading color="primary.500" fontSize="md">
-          Carregando dados de usuário...
-        </Heading>
-      </HStack>
+      <Box
+        flex={1}
+        alignItems="center"
+        justifyContent="center"
+        bg="gray.900"
+        px="16"
+      >
+        <HStack space={2} justifyContent="center">
+          <Spinner accessibilityLabel="Loading user" />
+          <Heading color="primary.500" fontSize="md">
+            Carregando dados de usuário...
+          </Heading>
+        </HStack>
+      </Box>
     );
   }
 
@@ -26,7 +34,11 @@ export default function Routes() {
     >
       <StatusBar barStyle="dark-content" />
 
-      {!isAuthenticated ? <SignIn /> : <Text>Colé, {user.nickname}!</Text>}
+      {!isAuthenticated ? (
+        <SignIn />
+      ) : (
+        <Text color="white">Colé, {user.nickname}!</Text>
+      )}
     </Box>
   );
 }

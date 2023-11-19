@@ -35,6 +35,9 @@ export default function SignIn() {
           w="full"
           h="12"
           bg="dark.100"
+          _text={{
+            color: 'primary.500'
+          }}
           _pressed={{ bgColor: 'dark.200' }}
         >
           Entrar

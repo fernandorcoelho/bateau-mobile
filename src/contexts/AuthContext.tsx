@@ -34,7 +34,7 @@ export const AuthContext = createContext<IAuthContextData>(
 
 export function AuthContextProvider({ children }: IAuthContextProvider) {
   const [user, setUser] = useState<IUserResponseDTO>({} as IUserResponseDTO);
-  const [loadingStorageUser, setLoadingStorageUser] = useState(true);
+  const [loadingStorageUser, setLoadingStorageUser] = useState(false);
   const isAuthenticated = useMemo(() => !!user.accessToken, [user]);
 
   const signIn = useCallback(async (payload: IUserRequestDTO) => {
@@ -64,11 +64,15 @@ export function AuthContextProvider({ children }: IAuthContextProvider) {
   }, []);
 
   const getUser = useCallback(async () => {
+    setLoadingStorageUser(true);
+
     try {
       const user = await getStorageUser();
       if (user) setUser(user);
     } catch (error) {
       throw error;
+    } finally {
+      setLoadingStorageUser(false);
     }
   }, []);
 
