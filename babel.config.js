@@ -3,8 +3,20 @@ module.exports = function (api) {
 
   const presets = ['babel-preset-expo'];
 
+  const alias = {
+    '@screens': './src/screens',
+    '@components': './src/components',
+    '@assets': './src/assets'
+  };
+
   const plugins = [
-    ['module-resolver'],
+    [
+      'module-resolver',
+      {
+        root: ['./src'],
+        alias
+      }
+    ],
     [
       'module:react-native-dotenv',
       {
