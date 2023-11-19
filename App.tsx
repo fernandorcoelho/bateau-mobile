@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { AuthContextProvider } from '@contexts/AuthContext';
 import {
   useFonts,
   Poppins_400Regular,
@@ -8,9 +9,8 @@ import {
   Poppins_700Bold,
   Poppins_800ExtraBold
 } from '@expo-google-fonts/poppins';
+import Routes from '@routes/index';
 import { Box, NativeBaseProvider } from 'native-base';
-
-import SignIn from './src/screens/SignIn';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -26,15 +26,9 @@ export default function App() {
       {!fontsLoaded ? (
         <Box>Carregando fontes...</Box>
       ) : (
-        <Box
-          flex={1}
-          alignItems="center"
-          justifyContent="center"
-          bg="black"
-          px="16"
-        >
-          <SignIn />
-        </Box>
+        <AuthContextProvider>
+          <Routes />
+        </AuthContextProvider>
       )}
     </NativeBaseProvider>
   );

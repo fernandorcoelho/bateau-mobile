@@ -6,7 +6,14 @@ module.exports = function (api) {
   const alias = {
     '@screens': './src/screens',
     '@components': './src/components',
-    '@assets': './src/assets'
+    '@assets': './src/assets',
+    '@services': './src/services',
+    '@utils': './src/utils',
+    '@contexts': './src/contexts',
+    '@dtos': './src/dtos',
+    '@storage': './src/storage',
+    '@routes': './src/routes',
+    '@hooks': './src/hooks'
   };
 
   const plugins = [
