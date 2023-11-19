@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "bateau-mobile",
+    "slug": "bateau-mobile",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
